@@ -1,0 +1,212 @@
+html, body {
+  margin: 0;
+  background: #E1E2E1;
+  font-family: Roboto, sans-serif; }
+  html .navbar, body .navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 1.3em;
+    background: #1b5e20;
+    color: white; }
+    html .navbar span, body .navbar span {
+      font-size: 1.3em; }
+  html .recipes, body .recipes {
+    margin: 5em auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; }
+    html .recipes .recipe, body .recipes .recipe {
+      width: 18em;
+      margin: 1em 1em 0.75em;
+      background: white;
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 7px 0 rgba(0, 0, 0, 0.19); }
+      html .recipes .recipe .img, body .recipes .recipe .img {
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        height: 11.5em;
+        cursor: pointer; }
+      html .recipes .recipe .recipe-text, body .recipes .recipe .recipe-text {
+        padding: 1em;
+        padding-bottom: 0.2em; }
+        html .recipes .recipe .recipe-text h2, body .recipes .recipe .recipe-text h2 {
+          margin: 0; }
+        html .recipes .recipe .recipe-text .buttons, body .recipes .recipe .recipe-text .buttons {
+          display: flex;
+          margin: 1em 0 0.4em -0.25em; }
+          html .recipes .recipe .recipe-text .buttons button, body .recipes .recipe .recipe-text .buttons button {
+            background: none;
+            color: #b71c1c;
+            cursor: pointer;
+            padding: 0.25em;
+            margin-right: 1.25em;
+            border: none;
+            outline: none !important;
+            font-family: inherit;
+            font-size: 1em;
+            font-weight: bold;
+            text-transform: uppercase; }
+            html .recipes .recipe .recipe-text .buttons button:focus, body .recipes .recipe .recipe-text .buttons button:focus {
+              background: #eaeae1; }
+            html .recipes .recipe .recipe-text .buttons button::moz-focus-inner, body .recipes .recipe .recipe-text .buttons button::moz-focus-inner {
+              border: none !important;
+              outline: none !important; }
+  html .add-new .modal-container, body .add-new .modal-container {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s; }
+    html .add-new .modal-container .modal-bg, body .add-new .modal-container .modal-bg {
+      z-index: 1;
+      background: black;
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.5s;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      bottom: 0;
+      right: 0; }
+    html .add-new .modal-container .modal-add, body .add-new .modal-container .modal-add {
+      opacity: 0;
+      transition: all 0.5s;
+      background: white;
+      width: 18em;
+      min-height: 23.2em;
+      right: 50%;
+      top: 50%;
+      margin-top: -12.6em;
+      margin-right: -9em;
+      z-index: 3;
+      box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+      position: fixed; }
+      html .add-new .modal-container .modal-add form, body .add-new .modal-container .modal-add form {
+        margin: 1em 1em 0.75em;
+        font-family: Roboto, sans-serif; }
+        html .add-new .modal-container .modal-add form label, body .add-new .modal-container .modal-add form label {
+          color: #737373;
+          font-size: 0.75em; }
+        html .add-new .modal-container .modal-add form input, html .add-new .modal-container .modal-add form textarea, body .add-new .modal-container .modal-add form input, body .add-new .modal-container .modal-add form textarea {
+          font-family: Roboto, sans-serif;
+          display: block;
+          width: 100%;
+          resize: none;
+          font-size: 1.5em;
+          border: none;
+          outline: none;
+          box-shadow: none !important;
+          border-bottom: solid 1.5px gray;
+          margin-top: 0.3em;
+          margin-bottom: 1em; }
+          html .add-new .modal-container .modal-add form input:focus, html .add-new .modal-container .modal-add form textarea:focus, body .add-new .modal-container .modal-add form input:focus, body .add-new .modal-container .modal-add form textarea:focus {
+            border-bottom-color: #b71c1c; }
+        html .add-new .modal-container .modal-add form button, body .add-new .modal-container .modal-add form button {
+          background: none;
+          color: #b71c1c;
+          cursor: pointer;
+          padding: 0.25em;
+          margin-right: 1.25em;
+          border: none;
+          outline: none !important;
+          font-family: inherit;
+          font-size: 1em;
+          font-weight: bold;
+          text-transform: uppercase;
+          margin-top: 2em;
+          margin-right: 0;
+          margin-left: -0.25em; }
+          html .add-new .modal-container .modal-add form button:focus, body .add-new .modal-container .modal-add form button:focus {
+            background: #eaeae1; }
+          html .add-new .modal-container .modal-add form button::moz-focus-inner, body .add-new .modal-container .modal-add form button::moz-focus-inner {
+            border: none !important;
+            outline: none !important; }
+    html .add-new .modal-container .modal-view, body .add-new .modal-container .modal-view {
+      opacity: 0;
+      transition: all 0.5s;
+      background: white;
+      width: 90%;
+      min-height: auto;
+      right: 50%;
+      top: 50%;
+      margin-top: -auto/21;
+      margin-right: -45%;
+      z-index: 3;
+      box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3);
+      position: fixed;
+      top: 4%;
+      bottom: 9%;
+      overflow-y: auto; }
+      html .add-new .modal-container .modal-view .img, body .add-new .modal-container .modal-view .img {
+        width: 100%;
+        background-position: center;
+        background-size: cover;
+        height: 50%; }
+      html .add-new .modal-container .modal-view .recipe-text, body .add-new .modal-container .modal-view .recipe-text {
+        padding: 0.7em;
+        padding-bottom: 1.5em; }
+        html .add-new .modal-container .modal-view .recipe-text h2, body .add-new .modal-container .modal-view .recipe-text h2 {
+          margin: 0; }
+      html .add-new .modal-container .modal-view h4, body .add-new .modal-container .modal-view h4 {
+        margin-bottom: 0.5em; }
+      html .add-new .modal-container .modal-view .ingredients, body .add-new .modal-container .modal-view .ingredients {
+        overflow: hidden;
+        word-wrap: break-word; }
+        html .add-new .modal-container .modal-view .ingredients ul, body .add-new .modal-container .modal-view .ingredients ul {
+          margin: 0; }
+      html .add-new .modal-container .modal-view .directions, body .add-new .modal-container .modal-view .directions {
+        white-space: pre-wrap; }
+  html .add-new .modal-add-container .modal-add, body .add-new .modal-add-container .modal-add {
+    z-index: 6;
+    opacity: 1; }
+  html .add-new .modal-view-container .modal-view, body .add-new .modal-view-container .modal-view {
+    z-index: 6;
+    opacity: 1; }
+  html .add-new .addBtn, body .add-new .addBtn {
+    width: 6em;
+    height: 6em;
+    position: fixed;
+    bottom: 3%;
+    right: 2%;
+    margin-right: 0;
+    cursor: pointer;
+    z-index: 7;
+    border-style: none;
+    border-radius: 50%;
+    outline: none;
+    background: #b71c1c;
+    color: white;
+    box-shadow: 0 4.3px 3px 0 rgba(0, 0, 0, 0.3), 0 6px 7px 0 rgba(0, 0, 0, 0.19); }
+    html .add-new .addBtn span, body .add-new .addBtn span {
+      display: block;
+      font-size: 3.2em;
+      transition: all 0.5s; }
+    html .add-new .addBtn .cancel-icon, body .add-new .addBtn .cancel-icon {
+      -webkit-transform: rotate(43.5deg);
+      -ms-transform: rotate(43.5deg);
+      transform: rotate(43.5deg); }
+  html .add-new .modal-container-visible, body .add-new .modal-container-visible {
+    visibility: visible;
+    opacity: 1; }
+    html .add-new .modal-container-visible .modal-bg, body .add-new .modal-container-visible .modal-bg {
+      visibility: visible;
+      opacity: 0.75; }
+
+@media screen and (min-width: 350px) {
+  .recipe {
+    width: 20em !important; }
+
+  .modal-add {
+    width: 20em !important;
+    margin-right: -10em !important; } }
+@media screen and (min-width: 760px) {
+  .modal-add {
+    width: 35em !important;
+    margin-right: -17.5em !important; }
+
+  .modal-view {
+    width: 60% !important;
+    margin-right: -30% !important;
+    top: 6% !important;
+    bottom: 6% !important; } }
+
+/*# sourceMappingURL=main.css.map */

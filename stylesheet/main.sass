@@ -1,0 +1,234 @@
+$red: #b71c1c
+$green: #1b5e20
+
+@mixin robotoFont
+  font-family: Roboto, sans-serif
+
+@mixin buttonStyling
+  background: none
+  color: $red
+  cursor: pointer
+  padding: 0.25em
+  margin-right: 1.25em
+  border: none
+  outline: none !important
+  font:
+    family: inherit
+    size: 1em
+    weight: bold
+  text-transform: uppercase
+  &:focus
+    background: #eaeae1
+  &::moz-focus-inner
+    border: none !important
+    outline: none !important
+
+@mixin imageDivStyle
+  width: 100%
+  background:
+    position: center
+    size: cover
+
+@mixin recipeTextStyle($padding, $padding-bottom)
+  padding: $padding
+  padding-bottom: $padding-bottom
+  h2
+    margin: 0
+
+@mixin modalStyle($width, $height: auto)
+  opacity: 0
+  transition: all .5s
+  background: white
+  width: $width
+  min-height: $height
+  right: 50%
+  top: 50%
+  margin:
+    top: -(($height / 2) + 1)
+    right: -($width / 2)
+  z-index: 3
+  box-shadow: 0 -2px 25px 0 rgba(0, 0, 0, 0.15), 0 13px 25px 0 rgba(0, 0, 0, 0.3)
+
+html, body
+  margin: 0
+  background: #E1E2E1
+  @include robotoFont
+
+  .navbar
+    position: fixed
+    top: 0
+    width: 100%
+    padding: 1.3em
+    background: $green
+    color: white
+
+    span
+      font-size: 1.3em
+
+  .recipes
+    margin: 5em auto
+    display: flex
+    flex-wrap: wrap
+    justify-content: center
+
+    .recipe
+      width: 18em
+      margin: 1em 1em .75em
+      background: white
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3), 0 4px 7px 0 rgba(0, 0, 0, 0.19)
+
+      .img
+        @include imageDivStyle
+        height: 11.5em
+        cursor: pointer
+
+      .recipe-text
+        @include recipeTextStyle(1em, .2em)
+
+        .buttons
+          display: flex
+          margin: 1em 0 .4em -.25em
+
+          button
+            @include buttonStyling
+
+  .add-new
+    .modal-container
+      visibility: hidden
+      opacity: 0
+      transition: all .5s
+
+      .modal-bg
+        z-index: 1
+        background: black
+        visibility: hidden
+        opacity: 0
+        transition: all .5s
+        width: 100%
+        height: 100%
+        position: fixed
+        bottom: 0
+        right: 0
+
+      .modal-add
+        @include modalStyle(18em, 23.2em)
+        position: fixed
+
+        form
+          margin: 1em 1em .75em
+          @include robotoFont
+
+          label
+            color: #737373
+            font-size: .75em
+
+          input, textarea
+            @include robotoFont
+            display: block
+            width: 100%
+            resize: none
+            font-size: 1.5em
+            border: none
+            outline: none
+            box-shadow: none !important
+            border-bottom: solid 1.5px gray
+            margin-top: .3em
+            margin-bottom: 1em
+
+            &:focus
+              border-bottom-color: $red
+
+          button
+            @include buttonStyling
+            margin:
+              top: 2em
+              right: 0
+              left: -.25em
+
+      .modal-view
+        @include modalStyle(90%)
+        position: fixed
+        top: 4%
+        bottom: 9%
+        overflow-y: auto
+
+        .img
+          @include imageDivStyle
+          height: 50%
+
+        .recipe-text
+          @include recipeTextStyle(.7em, 1.5em)
+
+        h4
+          margin-bottom: .5em
+
+        .ingredients
+          overflow: hidden
+          word-wrap: break-word
+
+          ul
+            margin: 0
+
+        .directions
+          white-space: pre-wrap
+
+    .modal-add-container
+      .modal-add
+        z-index: 6
+        opacity: 1
+
+    .modal-view-container
+      .modal-view
+        z-index: 6
+        opacity: 1
+
+    .addBtn
+      width: 6em
+      height: 6em
+      position: fixed
+      bottom: 3%
+      right: 2%
+      margin-right: 0
+      cursor: pointer
+      z-index: 7
+      border:
+        style: none
+        radius: 50%
+      outline: none
+      background: $red
+      color: white
+      box-shadow: 0 4.3px 3px 0 rgba(0, 0, 0, 0.3), 0 6px 7px 0 rgba(0, 0, 0, 0.19)
+
+      span
+        display: block
+        font-size: 3.2em
+        transition: all .5s
+
+      .cancel-icon
+        -webkit-transform: rotate(43.5deg)
+        -ms-transform: rotate(43.5deg)
+        transform: rotate(43.5deg)
+
+    .modal-container-visible
+      visibility: visible
+      opacity: 1
+      .modal-bg
+        visibility: visible
+        opacity: .75
+
+@media screen and (min-width: 350px)
+  .recipe
+    width: 20em !important
+  .modal-add
+    width: 20em !important
+    margin-right: -10em !important
+
+@media screen and (min-width: 760px)
+  .modal-add
+    width: 35em !important
+    margin-right: -17.5em !important
+  .modal-view
+    width: 60% !important
+    margin-right: -30% !important
+    top: 6% !important
+    bottom: 6% !important
